@@ -17,4 +17,11 @@ module.exports = function (app) {
         [authJwt.verifyToken],
         controller.getLessonsByUser
     );
+
+    app.put(
+        "/api/lessons/:idLesson",
+        [authJwt.verifyToken],
+        controller.updateStateLesson
+    );
+
 };

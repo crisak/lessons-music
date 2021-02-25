@@ -1,4 +1,5 @@
 'use strict';
+const { STATE_LESSON } = require("../enums");
 
 const db = require("../db")();
 
@@ -34,5 +35,43 @@ exports.getLessonsByUser = async (req, res) => {
 
     res.status(200).send({
         data: responseQuery.rows
+    });
+};
+
+exports.updateStateLesson = async (req, res) => {
+
+
+    const { state } = req.body || {};
+    const idUser = req.idUser;
+    const idLesson = Number((req.params || {}).idLesson);
+
+    // Validate request
+    if (!state || !idUser || !idLesson) {
+        return res.status(400).send({ message: "Bad request" });
+    }
+
+
+    const existState = Object.keys(STATE_LESSON)
+        .find((keyObject) => (
+            STATE_LESSON[keyObject] === state
+        ))
+
+    if (!existState) {
+        return res.status(400).send({ message: "Bad request" });
+    }
+
+
+    const query = {
+        text: `UPDATE lessons_users l
+	            SET state = $1
+	            WHERE l.id_lesson = $2 AND l.id_user = $3
+                `,
+        values: [state, idLesson, idUser]
+    }
+
+    await db.query(query);
+
+    res.status(200).send({
+        state: true
     });
 };
