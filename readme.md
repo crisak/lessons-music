@@ -1,6 +1,6 @@
 # API
 
-> Importar la base de datos para su correcto funcionamiento
+> Proyecto usando postgresql, jwt con expressJS, importar la base de datos para su correcto funcionamiento, el script se encuentra a raiz del proyecto **sessons_music_db.sql**
 
 ### Configuración de base de datos
 
