@@ -1,9 +1,12 @@
 # API
 
 > Importar la base de datos para su correcto funcionamiento
+
 ### Configuración de base de datos
-``app/config/dbConfig.js``
-```
+
+` `app/config/dbConfig.js` `
+
+``` 
 {
     HOST: "localhost",
     USER: "postgres",
@@ -19,11 +22,12 @@
 * clave: ``123456``
 
 ### Configuración de headers auth
+
 > Agregar el **`x-access-token`** en la cabecera de la petición cuando se requiera autenticaión
-```
+
+``` 
 x-access-token: el_token
 ```
-
 
 ### Endpoints
 
@@ -40,3 +44,11 @@ x-access-token: el_token
     - GET
     - Require auth
     - url: http://localhost:8080/api/lessons/notes/1
+
+4. Endpoint para agregar notas a sus lecciones
+    - POST
+    - Require auth
+    - url: http://localhost:8080/api/lessons/note
+    - body: ``` {"idLesson": 1, "note": "string"} ```
+
+    

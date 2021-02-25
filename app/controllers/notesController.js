@@ -15,7 +15,6 @@ exports.getNotesByLession = async (req, res) => {
     const idUser = req.idUser;
     const query = {
         // give the query a unique name
-        name: 'fetch-user',
         text: `SELECT n.id_note, n.note FROM users u
                 INNER JOIN lessons_users l
                 ON u.id_user = l.id_user
@@ -40,34 +39,29 @@ exports.getNotesByLession = async (req, res) => {
 
 exports.createNote = async (req, res) => {
 
+
+    const { body } = req;
+
     // Validate request
-    if (!req.idUser) {
+    if (!body.idLesson || !body.note) {
         return res.status(400).send({ message: "Bad request" });
     }
 
+    const { idLesson, note } = body;
 
-    const idUser = req.idUser;
     const query = {
         // give the query a unique name
         name: 'fetch-user',
-        text: `SELECT l.id_lesson, l.title, l.description FROM users u
-                INNER JOIN lessons_users
-                ON u.id_user = lessons_users.id_user
-                INNER JOIN lessons l
-                ON l.id_lesson = lessons_users.id_lesson
-                WHERE u.id_user = $1`,
-        values: [idUser]
+        text: `INSERT INTO public.notes(id_lesson_user, note)
+                VALUES ($1, $2)`,
+        values: [idLesson, note]
     }
 
     const responseQuery = await db.query(query);
 
-    if (!responseQuery || responseQuery.rows.length === 0) {
-        res.status(200).send({
-            data: []
-        });
-    }
+    console.log(responseQuery);
 
     res.status(200).send({
-        data: responseQuery.rows
+        status: true
     });
 };
