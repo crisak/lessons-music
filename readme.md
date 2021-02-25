@@ -43,12 +43,17 @@ x-access-token: el_token
 3.  Endpoint para obtener la lista de notas por lección
     - GET
     - Require auth
-    - url: http://localhost:8080/api/lessons/notes/1
+    - url: http://localhost:8080/api/lessons/notes/:idLesson
 
 4. Endpoint para agregar notas a sus lecciones
     - POST
     - Require auth
     - url: http://localhost:8080/api/lessons/note
     - body: ``` {"idLesson": 1, "note": "string"} ```
+
+5. Endpoint para eliminar notas a sus lecciones
+    - DELETE
+    - Require auth
+    - url: http://localhost:8080/api/lessons/note/:idNote
 
     
