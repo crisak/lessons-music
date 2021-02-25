@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "389d0d52-6fb2-4000-b262-2158e3de5647",
+		"name": "lessons-music",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/api/auth/signin",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"cris@gmail.com\",\n    \"password\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/auth/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				},
+				"description": "Endpoint de login"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/lessons",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE0MjM4MTU2LCJleHAiOjE2MTQzMjQ1NTZ9.w-Q96e11MMC_7tLqE_i2p2JUgSRvCegztY9FCKLBItw"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/lessons",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"lessons"
+					]
+				},
+				"description": "Get lessons by user auth"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/lessons/notes/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE0MjM4MTU2LCJleHAiOjE2MTQzMjQ1NTZ9.w-Q96e11MMC_7tLqE_i2p2JUgSRvCegztY9FCKLBItw"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/lessons/notes/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"lessons",
+						"notes",
+						"1"
+					]
+				},
+				"description": "Obtener las notas de una leccion"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/lessons/notes",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE0MjM4MTU2LCJleHAiOjE2MTQzMjQ1NTZ9.w-Q96e11MMC_7tLqE_i2p2JUgSRvCegztY9FCKLBItw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idLesson\": 1,\n    \"note\": \"La puntuación no corresponde a la letra\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/lessons/note",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"lessons",
+						"note"
+					]
+				},
+				"description": "Endpoint para agregar notas a sus lecciones"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/lessons/notes",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE0MjM4MTU2LCJleHAiOjE2MTQzMjQ1NTZ9.w-Q96e11MMC_7tLqE_i2p2JUgSRvCegztY9FCKLBItw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"state\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/lessons/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"lessons",
+						"1"
+					]
+				},
+				"description": "Endpoint para eliminar una nota"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

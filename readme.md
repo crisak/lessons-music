@@ -68,4 +68,6 @@ x-access-token: el_token
     - example: ``` {"state": 2 } ```
     - values soport: 1 | 2 | 3
 
+    > Se adjunta archivo (lessons-music.postman_collection.json) para importar los endpoints en Postman
+
     
