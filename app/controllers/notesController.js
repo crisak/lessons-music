@@ -14,7 +14,6 @@ exports.getNotesByLession = async (req, res) => {
 
     const idUser = req.idUser;
     const query = {
-        // give the query a unique name
         text: `SELECT n.id_note, n.note FROM users u
                 INNER JOIN lessons_users l
                 ON u.id_user = l.id_user
@@ -60,6 +59,28 @@ exports.createNote = async (req, res) => {
     const responseQuery = await db.query(query);
 
     console.log(responseQuery);
+
+    res.status(200).send({
+        status: true
+    });
+};
+
+exports.removeNote = async (req, res) => {
+
+    const idNote = Number((req.params || {}).idNote);
+
+    // Validate request
+    if (!idNote) {
+        return res.status(400).send({ message: "Bad request" });
+    }
+
+    const query = {
+        text: `DELETE FROM notes n WHERE n.id_note = $1`,
+        values: [idNote]
+    }
+
+    await db.query(query);
+
 
     res.status(200).send({
         status: true

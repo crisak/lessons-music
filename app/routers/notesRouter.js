@@ -22,4 +22,9 @@ module.exports = function (app) {
         [authJwt.verifyToken],
         controller.createNote
     );
+    app.delete(
+        "/api/lessons/note/:idNote",
+        [authJwt.verifyToken],
+        controller.removeNote
+    );
 };
