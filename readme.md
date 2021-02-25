@@ -1,18 +1,31 @@
-## Credenciales
+# API
+
+> Importar la base de datos para su correcto funcionamiento
+### Configuración de base de datos
+``app/config/dbConfig.js``
+```
+{
+    HOST: "localhost",
+    USER: "postgres",
+    PASSWORD: "cristian",
+    DB: "sessons_music_db",
+    PORT: 5433
+}
+```
+
+### Credenciales
 
 * correo: ``cris@gmail.com``
 * clave: ``123456``
 
-### API
-
-## Configuración de headers auth
+### Configuración de headers auth
 > Agregar el **`x-access-token`** en la cabecera de la petición cuando se requiera autenticaión
 ```
 x-access-token: el_token
 ```
 
 
-## Endpoints
+### Endpoints
 
 1. Endpoint login
     - POST
