@@ -4,7 +4,7 @@
 
 ### Configuración de base de datos
 
-` `app/config/dbConfig.js` `
+``app/config/dbConfig.js``
 
 ``` 
 {

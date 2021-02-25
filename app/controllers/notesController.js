@@ -56,9 +56,7 @@ exports.createNote = async (req, res) => {
         values: [idLesson, note]
     }
 
-    const responseQuery = await db.query(query);
-
-    console.log(responseQuery);
+    await db.query(query);
 
     res.status(200).send({
         status: true

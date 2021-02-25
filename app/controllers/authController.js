@@ -48,8 +48,6 @@ exports.signin = async (req, res) => {
         user.password
     );
 
-    console.log("Calve");
-
     if (!passwordIsValid) {
         return res.status(401).send({
             accessToken: null,
